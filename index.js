@@ -37,11 +37,12 @@ bot.command('DevTalks', ctx => {
             ctx.reply('No Dev-Talks scheduled');
         }
         
-        const info = data.map(
+        const info = res.data.map(
             (element) => `[${element.title}](${element.html_url}) by [${element.user.login}](${element.user.html_url})`
         )
 
         ctx.telegram.sendMessage(ctx.chat.id,info.join('\n\n'),{parse_mode:'Markdown'})
+    })    
 })
 
 bot.launch()
